@@ -1,13 +1,14 @@
 import turtle
+import random
 turtle.delay(0)
-maTortue=turtle.Turtle()
+'''maTortue=turtle.Turtle()
 maTortue.pencolor("pink")
 maTortue2=turtle.Turtle()
 maTortue2.pencolor("blue")
 maTortue3=turtle.Turtle()
 maTortue3.pencolor("green")
-maTortue.speed(0)
-import random
+maTortue.speed(0)'''
+
 
 #carré
 '''
@@ -112,13 +113,60 @@ pommedeterre(maTortue2,maTortue,maTortue3)
 
 #4.a démarrer positions aléatoires 
 
-def aubergine(muguet):
+listeofT=[]
+turtle.shapesize(3)
+turtle.shape("turtle")
+turtle.color("red")
+def frangipanier(n):
+    liste=[]
+    for i in range(n):
+        liste.append(turtle.Turtle())
+    return liste
 
-    positionx = random.randint(0,100)
-    positiony= random.randint(0,100)
+def aubergine(liste):
+    for i in liste:
 
-    muguet.penup()
-    muguet.goto(positionx, positiony)
-    muguet.pendown()
+        i.penup()
+        i.goto(random.randint(-400,400), random.randint(-400,400))
+        i.pendown()
+        i.color(random.random(),random.random(),random.random())
+        i.shapesize(random.randint(1,8))
+
+def pas(tortue):
+    var = random.randint(0,2)
+    if var ==1:
+        tortue.left(90)
+    elif var ==2:
+        tortue.right(90)
+    else :
+        pass
+    tortue.forward(10)
+
+def pommedeterre(liste):
+    for i in liste:
+        pas(i)
+
+def changeUp():
+    turtle.setheading(90)
+def changeRight():
+    turtle.setheading(0)
+def changeLeft():
+    turtle.setheading(180)
+def changeDown():
+    turtle.setheading(270)
+
+turtle.onkeypress(changeUp,"Up")
+turtle.onkeypress(changeRight,"Right")
+turtle.onkeypress(changeDown,"Down")
+turtle.onkeypress(changeLeft,"Left")
+turtle.listen()
+
+listeofT=(frangipanier(9))
+aubergine(listeofT)
+aubergine(listeofT)
 
 
+
+while 1:
+    turtle.forward(10)
+    pommedeterre(listeofT)
