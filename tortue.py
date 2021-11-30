@@ -210,3 +210,4 @@ while 1:
                     maTortue.shapesize(maTortue.shapesize()[0]* 1.5, maTortue.shapesize()[1]* 1.5)
                     k.hideturtle()
                     k.penup()
+input()
