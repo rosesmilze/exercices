@@ -170,3 +170,41 @@ aubergine(listeofT)
 while 1:
     turtle.forward(10)
     pommedeterre(listeofT)
+    
+        facteurAleatoire = random.randint(0, 2)
+        if facteurAleatoire == 0:
+            k.left(90)
+        elif facteurAleatoire == 1:
+            k.right(90)
+        else:
+            pass
+
+    maTortue.forward(playerSpeed)
+
+    for k in listeDeTortues:
+        for l in listeDeTortues:
+            if (k.isvisible() and l.isvisible() and k != l and distance(k.position(), l.position()) <= facteurDeTaille * max(k.shapesize()[0], l.shapesize()[0])):
+                
+                if (k.shapesize()[0] >= l.shapesize()[0]):
+                    k.speed(k.speed() - 2)
+                    k.shapesize(k.shapesize()[0] * 1.5, k.shapesize()[1]* 1.5)
+                    l.hideturtle()
+                    l.penup()
+                else:
+                    l.speed(l.speed() - 2)
+                    l.shapesize(l.shapesize()[0]* 1.5, l.shapesize()[1]* 1.5)
+                    k.hideturtle()
+                    k.penup()
+        
+        if (k.isvisible() and maTortue.isvisible() and k != maTortue and distance(k.position(), maTortue.position()) <= facteurDeTaille * max(k.shapesize()[0], maTortue.shapesize()[0])):
+               
+                if (k.shapesize()[0] > maTortue.shapesize()[0]):
+                    k.shapesize(k.shapesize()[0] * 1.5, k.shapesize()[1]* 1.5)
+                    maTortue.hideturtle()
+                    maTortue.penup()
+                else:
+                    maTortue.speed(maTortue.speed() - 2)
+                    playerSpeed /= 1.8
+                    maTortue.shapesize(maTortue.shapesize()[0]* 1.5, maTortue.shapesize()[1]* 1.5)
+                    k.hideturtle()
+                    k.penup()
