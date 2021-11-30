@@ -1,3 +1,5 @@
+#Rosalie LAGARDE GD1.2
+
 import turtle
 import random
 turtle.delay(0)
